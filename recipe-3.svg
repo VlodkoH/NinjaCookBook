@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#082026"/>
+  <g transform="translate(60,40)">
+    <rect width="680" height="420" rx="20" fill="#083035"/>
+    <g transform="translate(30,30)">
+      <path d="M60 60c40 60 120 60 160 0" fill="#ffd6a5"/>
+      <rect x="260" y="40" width="320" height="40" rx="8" fill="#d1f7e1"/>
+      <text x="280" y="72" fill="#083035" font-size="28" font-weight="700">Овочеве стир-фрай</text>
+    </g>
+  </g>
+</svg>

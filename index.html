@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NinjaCookBook — Рецепти офлайн</title>
+  <meta name="description" content="NinjaCookBook — легкий PWA для перегляду, пошуку та збереження рецептів. Працює офлайн." />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/icon-192.svg" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <style>
+    /* Inline minimal resets for faster first paint; fuller styles in styles.css */
+    :root {color-scheme: light dark;}
+    html,body,#app{height:100%;margin:0;}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="app-header">
+      <div class="brand">
+        <img src="icon-192.svg" alt="NinjaCookBook" class="brand-icon" />
+        <h1>NinjaCookBook</h1>
+      </div>
+      <div class="actions">
+        <button id="btn-add" class="btn primary">Додати рецепт</button>
+        <button id="btn-favorites" class="btn">Улюблені</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="search-area">
+        <input id="search-input" type="search" placeholder="Пошук рецептів за назвою або інгредієнтом..." aria-label="Пошук рецептів" />
+        <select id="sort-select" aria-label="Сортування">
+          <option value="newest">За новизною</option>
+          <option value="az">А → Я</option>
+        </select>
+      </section>
+
+      <section id="list-view" class="list-view" aria-live="polite"></section>
+
+      <section id="detail-view" class="detail-view hidden" aria-live="polite">
+        <button id="back-to-list" class="btn">⬅ Повернутися</button>
+        <article id="recipe-detail" class="recipe-detail"></article>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <div class="status">
+        <span id="sw-status">offline</span>
+        <span id="recipes-count"></span>
+      </div>
+      <div class="credits">NinjaCookBook • PWA • Offline-ready</div>
+    </footer>
+  </div>
+
+  <!-- Modal: Add Recipe -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2 id="modal-title">Додати новий рецепт</h2>
+        <button id="modal-close" class="btn">✕</button>
+      </header>
+      <form id="recipe-form" class="recipe-form">
+        <label>Назва
+          <input name="title" required maxlength="120" />
+        </label>
+        <label>Короткий опис
+          <input name="description" required maxlength="180" />
+        </label>
+        <label>Інгредієнти (один на рядок)
+          <textarea name="ingredients" required rows="4" placeholder="Наприклад: 2 яйця"></textarea>
+        </label>
+        <label>Кроки (один крок на рядок)
+          <textarea name="steps" required rows="6" placeholder="Опис кроків приготування"></textarea>
+        </label>
+        <label>Зображення (URL або залиште порожнім)
+          <input name="image" placeholder="https://..." />
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Зберегти</button>
+          <button type="button" id="form-cancel" class="btn">Відмінити</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <template id="card-template">
+    <article class="card">
+      <div class="card-image-wrap">
+        <img class="card-image" alt="" />
+      </div>
+      <div class="card-body">
+        <h3 class="card-title"></h3>
+        <p class="card-desc"></p>
+        <div class="card-meta">
+          <button class="btn small fav-btn" title="Улюблене">♡</button>
+          <button class="btn small view-btn">Переглянути</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js" defer></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').then(function(reg){console.log('SW registered', reg);}).catch(function(err){console.warn('SW register failed', err);});
+    }
+  </script>
+</body>
+</html>
