@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <title>Плов — ілюстрація</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fed7aa"/>
+      <stop offset="1" stop-color="#ddd6fe"/>
+    </linearGradient>
+    <radialGradient id="rice" cx=".5" cy=".4" r=".6">
+      <stop offset="0" stop-color="#fde68a"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <!-- plate -->
+  <ellipse cx="400" cy="300" rx="300" ry="120" fill="#ffffff" opacity=".9"/>
+  <ellipse cx="400" cy="292" rx="250" ry="95" fill="#f1f5f9"/>
+  <!-- rice mound -->
+  <path d="M190 300c10-90 110-150 210-150s200 60 210 150c-60 30-140 44-210 44s-150-14-210-44z" fill="url(#rice)"/>
+  <!-- rice grains -->
+  <g fill="#fffbeb" opacity=".85">
+    <ellipse cx="300" cy="230" rx="12" ry="4" transform="rotate(-20 300 230)"/>
+    <ellipse cx="350" cy="200" rx="12" ry="4" transform="rotate(15 350 200)"/>
+    <ellipse cx="420" cy="190" rx="12" ry="4" transform="rotate(-10 420 190)"/>
+    <ellipse cx="480" cy="215" rx="12" ry="4" transform="rotate(25 480 215)"/>
+    <ellipse cx="530" cy="250" rx="12" ry="4" transform="rotate(-15 530 250)"/>
+    <ellipse cx="260" cy="270" rx="12" ry="4" transform="rotate(10 260 270)"/>
+    <ellipse cx="380" cy="250" rx="12" ry="4" transform="rotate(-25 380 250)"/>
+    <ellipse cx="450" cy="265" rx="12" ry="4" transform="rotate(5 450 265)"/>
+    <ellipse cx="560" cy="290" rx="12" ry="4" transform="rotate(20 560 290)"/>
+    <ellipse cx="330" cy="290" rx="12" ry="4" transform="rotate(-5 330 290)"/>
+  </g>
+  <!-- carrot strips -->
+  <g fill="#ea580c">
+    <rect x="320" y="215" width="44" height="9" rx="4" transform="rotate(-25 342 219)"/>
+    <rect x="455" y="240" width="44" height="9" rx="4" transform="rotate(20 477 244)"/>
+    <rect x="280" y="250" width="44" height="9" rx="4" transform="rotate(10 302 254)"/>
+    <rect x="500" y="275" width="44" height="9" rx="4" transform="rotate(-15 522 279)"/>
+    <rect x="390" y="280" width="44" height="9" rx="4" transform="rotate(30 412 284)"/>
+  </g>
+  <!-- meat pieces -->
+  <g fill="#92400e">
+    <rect x="360" y="225" width="34" height="26" rx="8" transform="rotate(12 377 238)"/>
+    <rect x="420" y="215" width="34" height="26" rx="8" transform="rotate(-18 437 228)"/>
+    <rect x="300" y="275" width="34" height="26" rx="8" transform="rotate(8 317 288)"/>
+    <rect x="470" y="285" width="34" height="26" rx="8" transform="rotate(-6 487 298)"/>
+  </g>
+  <!-- garlic head on top -->
+  <g transform="translate(400 170)">
+    <path d="M-30 10c0-26 14-40 30-40s30 14 30 40c0 18-14 26-30 26s-30-8-30-26z" fill="#fafaf9" stroke="#d6d3d1" stroke-width="3"/>
+    <path d="M0-30v66M-14-22c-6 18-6 40 0 56M14-22c6 18 6 40 0 56" stroke="#d6d3d1" stroke-width="3" fill="none"/>
+    <path d="M0-30c-2-10 2-18 8-22" stroke="#a8a29e" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- barberries -->
+  <g fill="#be123c">
+    <circle cx="340" cy="190" r="5"/><circle cx="470" cy="200" r="5"/><circle cx="520" cy="235" r="5"/>
+    <circle cx="275" cy="240" r="5"/><circle cx="430" cy="300" r="5"/><circle cx="360" cy="305" r="5"/>
+  </g>
+</svg>

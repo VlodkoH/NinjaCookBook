@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "device": "OL650EU",
+  "categories": [
+    { "id": "main", "name": "Основні страви", "icon": "🍲" },
+    { "id": "soups", "name": "Супи", "icon": "🥣" },
+    { "id": "sides", "name": "Гарніри", "icon": "🍚" },
+    { "id": "desserts", "name": "Десерти", "icon": "🍰" }
+  ],
+  "recipes": [
+    {
+      "id": "plov",
+      "title": "Плов",
+      "category": "main",
+      "description": "Плов зі свининою для Ninja Foodi SmartLid OL650EU: спершу зірвак під тиском, потім рис шаром зверху.",
+      "servings": 5,
+      "prepMinutes": null,
+      "cookMinutes": 80,
+      "difficulty": null,
+      "tags": ["свинина", "рис", "зірвак"],
+      "ingredients": [
+        { "name": "Свинина", "amount": 1000, "unit": "г", "note": null },
+        { "name": "Рис (пропарений або басматі)", "amount": 500, "unit": "г", "note": "промити й замочити" },
+        { "name": "Морква", "amount": 2, "unit": "шт.", "note": null },
+        { "name": "Цибуля ріпчаста", "amount": 2, "unit": "шт.", "note": null },
+        { "name": "Часник", "amount": 1, "unit": "головка", "note": null },
+        { "name": "Олія", "amount": 80, "amountMax": 100, "unit": "мл", "note": null },
+        { "name": "Вода", "amount": 500, "unit": "мл", "note": "гаряча; точну кількість на кожному етапі див. у кроках" },
+        { "name": "Спеції: зіра, куркума, барбарис, сіль та чорний перець", "amount": null, "unit": null, "note": null }
+      ],
+      "steps": [
+        {
+          "stage": "Етап 1. Приготування зірвака",
+          "text": "Обсмажити м'ясо (свинину) у чаші.",
+          "mode": "Sear/Sauté",
+          "temperature": "Hi 5 (High)",
+          "pressure": null,
+          "minutes": 8,
+          "minutesMax": 10,
+          "valve": null,
+          "note": "У режимі Sear/Sauté таймер не налаштовується. Відміряйте час самостійно й вимкніть режим кнопкою START/STOP.",
+          "verified": true
+        },
+        {
+          "stage": "Етап 1. Приготування зірвака",
+          "text": "Викласти зверху шар цибулі, потім щільний шар моркви. Не перемішувати.",
+          "mode": null,
+          "temperature": null,
+          "pressure": null,
+          "minutes": null,
+          "verified": true
+        },
+        {
+          "stage": "Етап 1. Приготування зірвака",
+          "text": "Додати 250–300 мл гарячої води.",
+          "mode": null,
+          "temperature": null,
+          "pressure": null,
+          "minutes": null,
+          "note": "За інструкцією для готування під тиском у чаші має бути не менше 250 мл рідини.",
+          "verified": true
+        },
+        {
+          "stage": "Етап 1. Приготування зірвака",
+          "text": "Готувати під тиском.",
+          "mode": "Pressure Cook",
+          "temperature": null,
+          "pressure": "High (Hi)",
+          "minutes": 20,
+          "valve": "SEAL",
+          "note": "Повзунок SmartLid — у положенні PRESSURE. Не заповнюйте чашу вище лінії PRESSURE MAX.",
+          "verified": true
+        },
+        {
+          "stage": "Етап 1. Приготування зірвака",
+          "text": "Природне скидання тиску (Natural Release) – 10 хв.",
+          "mode": "Natural Release",
+          "temperature": null,
+          "pressure": null,
+          "minutes": 10,
+          "valve": null,
+          "note": "За інструкцією природне скидання може тривати 20 хв і довше, а кришку можна відкрити лише після напису «OPN Lid». Що робити із залишковим тиском через 10 хв, у рецепті не вказано.",
+          "verified": false
+        },
+        {
+          "stage": "Етап 1. Приготування зірвака",
+          "text": "Додати сіль, зіру, барбарис, перець, часник.",
+          "mode": null,
+          "temperature": null,
+          "pressure": null,
+          "minutes": null,
+          "verified": true
+        },
+        {
+          "stage": "Етап 1. Приготування зірвака",
+          "text": "Тушкувати для формування зірвака.",
+          "mode": "Sear/Sauté",
+          "temperature": "Lo 1 (Low)",
+          "pressure": null,
+          "minutes": 10,
+          "minutesMax": 15,
+          "valve": null,
+          "note": "У режимі Sear/Sauté таймер не налаштовується. Відміряйте час самостійно.",
+          "verified": true
+        },
+        {
+          "stage": "Етап 2. Приготування рису",
+          "text": "Викласти зверху промитий і замочений рис. Не перемішувати.",
+          "mode": null,
+          "temperature": null,
+          "pressure": null,
+          "minutes": null,
+          "verified": true
+        },
+        {
+          "stage": "Етап 2. Приготування рису",
+          "text": "Долити гарячу воду так, щоб вона покривала рис приблизно на 1 см (для 500 г рису зазвичай 400–500 мл, залежно від кількості рідини в зірваку).",
+          "mode": null,
+          "temperature": null,
+          "pressure": null,
+          "minutes": null,
+          "note": "За інструкцією під час готування рису чашу не можна заповнювати більш ніж наполовину.",
+          "verified": true
+        },
+        {
+          "stage": "Етап 2. Приготування рису",
+          "text": "За бажанням вставити в центр цілу головку часнику.",
+          "mode": null,
+          "temperature": null,
+          "pressure": null,
+          "minutes": null,
+          "verified": true
+        },
+        {
+          "stage": "Етап 2. Приготування рису",
+          "text": "Готувати рис під тиском.",
+          "mode": "Pressure Cook",
+          "temperature": null,
+          "pressure": "Low (LO)",
+          "minutes": 5,
+          "valve": "SEAL",
+          "note": "Повзунок SmartLid — у положенні PRESSURE.",
+          "verified": true
+        },
+        {
+          "stage": "Етап 2. Приготування рису",
+          "text": "Природне скидання тиску (Natural Release) – 10 хв.",
+          "mode": "Natural Release",
+          "temperature": null,
+          "pressure": null,
+          "minutes": 10,
+          "valve": null,
+          "note": "За інструкцією природне скидання може тривати 20 хв і довше, а кришку можна відкрити лише після напису «OPN Lid». Що робити із залишковим тиском через 10 хв, у рецепті не вказано.",
+          "verified": false
+        },
+        {
+          "stage": "Етап 2. Приготування рису",
+          "text": "Акуратно розпушити рис і залишити ще на 5–10 хв.",
+          "mode": null,
+          "temperature": null,
+          "pressure": null,
+          "minutes": 5,
+          "minutesMax": 10,
+          "verified": true
+        }
+      ],
+      "tips": [
+        "Не використовуйте 1 літр води, як у рецепті для казана — у мультиварці вода майже не випаровується.",
+        "Для найкращого результату використовуйте гарячу воду.",
+        "Кількість води потрібно коригувати залежно від сорту рису (девзіра, лазер, басматі тощо)."
+      ],
+      "image": "images/plov.svg"
+    }
+  ]
+}
