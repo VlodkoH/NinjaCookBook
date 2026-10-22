@@ -1,4 +1,4 @@
-import { getUserRecipes } from './storage.js';
+import { getUserRecipes, getOverrides } from './storage.js';
 
 export const SUPPORTED_SCHEMA_VERSION = 1;
 const DATA_URL = 'data/recipes.json';
@@ -102,8 +102,18 @@ export function getCategory(id) {
 export function getAllRecipes() {
   if (!db) return [];
   const seedIds = new Set(db.recipes.map((r) => r.id));
+  const overrides = getOverrides();
+  const seed = db.recipes.map((r) => (overrides[r.id] ? normalizeRecipe({ ...overrides[r.id], id: r.id }) : r));
   const user = getUserRecipes().filter((r) => r && r.id && !seedIds.has(r.id)).map(normalizeRecipe);
-  return db.recipes.concat(user);
+  return seed.concat(user);
+}
+
+export function isSeedRecipe(id) {
+  return !!db?.recipes.some((r) => r.id === id);
+}
+
+export function hasOverride(id) {
+  return isSeedRecipe(id) && !!getOverrides()[id];
 }
 
 export function getRecipe(id) {

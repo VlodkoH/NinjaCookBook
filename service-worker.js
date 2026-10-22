@@ -1,6 +1,6 @@
 /* NinjaCookBook Service Worker.
  * Bump CACHE_VERSION whenever any file in APP_SHELL (or recipes.json) changes. */
-const CACHE_VERSION = 'v3';
+const CACHE_VERSION = 'v5';
 const CACHE_PREFIX = 'ninjacookbook-';
 const SHELL_CACHE = `${CACHE_PREFIX}shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `${CACHE_PREFIX}runtime-${CACHE_VERSION}`;
@@ -22,6 +22,7 @@ const APP_SHELL = [
   'js/add-recipe.js',
   'js/views/home.js',
   'js/views/recipe.js',
+  'js/views/recipe-edit.js',
   'data/recipes.json',
   'icons/icon.svg',
   'icons/icon-192.png',

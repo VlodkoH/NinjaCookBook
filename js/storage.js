@@ -3,6 +3,7 @@ const KEYS = {
   recent: 'ninjacookbook.recent.v1',
   theme: 'ninjacookbook.theme.v1',
   userRecipes: 'ninjacookbook.userRecipes.v1',
+  overrides: 'ninjacookbook.overrides.v1',
   checked: 'ninjacookbook.checked.v1',
   legacyRecipes: 'ninjacookbook.recipes.v1',
   legacyMigrated: 'ninjacookbook.legacyMigrated.v1'
@@ -97,6 +98,24 @@ export function saveUserRecipe(recipe) {
   const list = getUserRecipes().filter((r) => r.id !== recipe.id);
   list.unshift(recipe);
   return write(KEYS.userRecipes, list);
+}
+
+// Edited copies of recipes shipped in data/recipes.json (the file itself is read-only in a browser).
+export function getOverrides() {
+  const map = read(KEYS.overrides, {});
+  return map && typeof map === 'object' && !Array.isArray(map) ? map : {};
+}
+
+export function saveOverride(recipe) {
+  const map = getOverrides();
+  map[recipe.id] = recipe;
+  return write(KEYS.overrides, map);
+}
+
+export function deleteOverride(id) {
+  const map = getOverrides();
+  delete map[id];
+  write(KEYS.overrides, map);
 }
 
 export function deleteUserRecipe(id) {

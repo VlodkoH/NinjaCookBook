@@ -2,7 +2,7 @@ import { loadDatabase, getAllRecipes, getRecipe, getDevice } from './data.js';
 import { toggleFavorite, migrateLegacyRecipes } from './storage.js';
 import { initTheme } from './theme.js';
 import { initHome, renderHome, renderCategory } from './views/home.js';
-import { renderRecipe, refreshFavoriteButton } from './views/recipe.js';
+import { renderRecipe, refreshFavoriteButton, isEditing, confirmLeaveEdit } from './views/recipe.js';
 import { initAddDialog, openAddDialog } from './add-recipe.js';
 import { releaseWakeLock } from './wakelock.js';
 import { plural } from './utils.js';
@@ -20,6 +20,8 @@ const toast = document.getElementById('toast');
 let ready = false;
 let toastTimer = null;
 let firstRoute = true;
+let currentHash = location.hash;
+let restoringHash = false;
 
 function show(name) {
   Object.entries(views).forEach(([key, node]) => node.classList.toggle('hidden', key !== name));
@@ -60,6 +62,14 @@ function route() {
           showToast('Рецепт видалено');
           updateCount();
           location.hash = '#/';
+        },
+        onSaved: (saved) => {
+          document.title = `${saved.title} — NinjaCookBook`;
+          showToast('Рецепт збережено');
+        },
+        onReset: () => {
+          showToast('Відновлено початкову версію');
+          route();
         }
       });
       show('recipe');
@@ -156,8 +166,20 @@ document.getElementById('btn-add').addEventListener('click', () => {
 });
 document.getElementById('btn-retry').addEventListener('click', start);
 document.addEventListener('click', onFavoriteClick);
-window.addEventListener('hashchange', route);
-window.addEventListener('storage', () => { if (ready) { updateCount(); route(); } });
+window.addEventListener('hashchange', () => {
+  if (restoringHash) {
+    restoringHash = false;
+    return;
+  }
+  if (isEditing() && !confirmLeaveEdit()) {
+    restoringHash = true;
+    location.hash = currentHash;
+    return;
+  }
+  currentHash = location.hash;
+  route();
+});
+window.addEventListener('storage', () => { if (ready && !isEditing()) { updateCount(); route(); } });
 
 registerServiceWorker();
 start();
